@@ -15,15 +15,25 @@ public class Cydeo {
         driver.navigate().to("https://cydeo.com/programs/");
 
         if (driver.getTitle().contains("Program")) {
-            System.out.println("it is true link");
+            System.out.println("test passed");
         } else {
-            System.out.println("false link");
+            System.out.println("test failed");
+        }
+
+        String expectedURL="cydeo";
+        String actualURL= driver.getCurrentUrl();
+        if (actualURL.contains(expectedURL)){
+            System.out.println("test passed");
+        }else{
+            System.out.println("test failed");
         }
 
         driver.manage().window().maximize();
         Thread.sleep(2000);
         driver.navigate().back();
-        driver.quit();
+        Thread.sleep(2000);
+        driver.close();
+
 
     }
 
